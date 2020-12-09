@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New NamePhoneRecord{% endblock %}
+
+{% block body %}
+    <h1>Create new NamePhoneRecord</h1>
+
+    {{ include('name_phone_record/_form.html.twig') }}
+
+    <a href="{{ path('name_phone_record_index') }}">back to list</a>
+{% endblock %}

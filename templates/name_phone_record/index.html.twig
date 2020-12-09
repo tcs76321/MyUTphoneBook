@@ -1,41 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}NamePhoneRecord index{% endblock %}
+{% block title %}My UT Phone Book{% endblock %}
 
 {% block body %}
-    <h1>NamePhoneRecord index</h1>
+    <div class="top">
+        <h1>My UT Phone Book</h1>
+    </div>
+    <div class="main">
+{#        <h2>Record Index</h2>#}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>PhoneNumber</th>
-                <th>Favorited</th>
-                <th>Color</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for name_phone_record in name_phone_records %}
-            <tr>
-                <td>{{ name_phone_record.id }}</td>
-                <td>{{ name_phone_record.name }}</td>
-                <td>{{ name_phone_record.phoneNumber }}</td>
-                <td>{{ name_phone_record.favorited ? 'Yes' : 'No' }}</td>
-                <td>{{ name_phone_record.color }}</td>
-                <td>
-                    <a href="{{ path('name_phone_record_show', {'id': name_phone_record.id}) }}">show</a>
-                    <a href="{{ path('name_phone_record_edit', {'id': name_phone_record.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{#        {{ include('name_phone_record/_form.html.twig') }}#}
 
-    <a href="{{ path('name_phone_record_new') }}">Create new</a>
+        <table class="table">
+{#            <thead>#}
+{#                <tr>#}
+{#                    <th>Id</th>#}
+{#                    <th></th>#}
+{#                    <th>Name</th>#}
+{#                    <th>PhoneNumber</th>#}
+{#                    <th>Favorited</th>#}
+{#                    <th>Color</th>#}
+{#                    <th>actions</th>#}
+{#                </tr>#}
+{#            </thead>#}
+            <tbody>
+            {% for name_phone_record in name_phone_records %}
+                <tr>
+{#                    <td>{{ name_phone_record.id }}</td>#}
+{#                    <td></td>#}
+                    <td>{{ name_phone_record.name }}</td>
+                    <td>{{ name_phone_record.phoneNumber }}</td>
+                    <td>{{ name_phone_record.favorited ? 'Full Start' : 'Empty Star' }}</td>
+                    <td>{{ name_phone_record.color }}</td>
+{#                    <td>#}
+{#                        <a href="{{ path('name_phone_record_show', {'id': name_phone_record.id}) }}">show</a>#}
+{#                        <a href="{{ path('name_phone_record_edit', {'id': name_phone_record.id}) }}">edit</a>#}
+{#                    </td>#}
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+{#        <a href="{{ path('name_phone_record_new') }}">Create new</a>#}
+    </div>
 {% endblock %}

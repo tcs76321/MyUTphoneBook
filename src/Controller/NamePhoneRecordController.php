@@ -14,10 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class NamePhoneRecordController extends AbstractController
 {
     /**
-     * @Route("/", name="name_phone_record_index", methods={"GET"})
+     * @Route("/", name="name_phone_record_index", methods={"GET","POST"})
      */
     public function index(NamePhoneRecordRepository $namePhoneRecordRepository): Response
     {
+
+
         return $this->render('name_phone_record/index.html.twig', [
             'name_phone_records' => $namePhoneRecordRepository->findAll(),
         ]);

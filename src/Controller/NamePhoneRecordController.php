@@ -18,8 +18,6 @@ class NamePhoneRecordController extends AbstractController
      */
     public function index(NamePhoneRecordRepository $namePhoneRecordRepository): Response
     {
-
-
         return $this->render('name_phone_record/index.html.twig', [
             'name_phone_records' => $namePhoneRecordRepository->findAll(),
         ]);

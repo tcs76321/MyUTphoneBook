@@ -3,15 +3,23 @@
 {% block title %}My UT Phone Book{% endblock %}
 
 {% block body %}
-    <div class="top">
-        <h1>My UT Phone Book</h1>
-    </div>
-    <div class="main">
+    <div id="root"></div>
+{% endblock %}
+
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}My UT Phone Book{% endblock %}#}
+
+{#{% block body %}#}
+{#    <div class="top">#}
+{#        <h1>My UT Phone Book</h1>#}
+{#    </div>#}
+{#    <div class="main">#}
 {#        <h2>Record Index</h2>#}
 
 {#        {{ include('name_phone_record/_form.html.twig') }}#}
 
-        <table class="table">
+{#        <table class="table">#}
 {#            <thead>#}
 {#                <tr>#}
 {#                    <th>Id</th>#}
@@ -23,28 +31,28 @@
 {#                    <th>actions</th>#}
 {#                </tr>#}
 {#            </thead>#}
-            <tbody>
-            {% for name_phone_record in name_phone_records %}
-                <tr>
+{#            <tbody>#}
+{#            {% for name_phone_record in name_phone_records %}#}
+{#                <tr>#}
 {#                    <td>{{ name_phone_record.id }}</td>#}
 {#                    <td></td>#}
-                    <td>{{ name_phone_record.name }}</td>
-                    <td>{{ name_phone_record.phoneNumber }}</td>
-                    <td>{{ name_phone_record.favorited ? 'Full Start' : 'Empty Star' }}</td>
-                    <td>{{ name_phone_record.color }}</td>
+{#                    <td>{{ name_phone_record.name }}</td>#}
+{#                    <td>{{ name_phone_record.phoneNumber }}</td>#}
+{#                    <td>{{ name_phone_record.favorited ? 'Full Start' : 'Empty Star' }}</td>#}
+{#                    <td>{{ name_phone_record.color }}</td>#}
 {#                    <td>#}
 {#                        <a href="{{ path('name_phone_record_show', {'id': name_phone_record.id}) }}">show</a>#}
 {#                        <a href="{{ path('name_phone_record_edit', {'id': name_phone_record.id}) }}">edit</a>#}
 {#                    </td>#}
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="6">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+{#                </tr>#}
+{#            {% else %}#}
+{#                <tr>#}
+{#                    <td colspan="6">no records found</td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#            </tbody>#}
+{#        </table>#}
 
 {#        <a href="{{ path('name_phone_record_new') }}">Create new</a>#}
-    </div>
-{% endblock %}
+{#    </div>#}
+{#{% endblock %}#}

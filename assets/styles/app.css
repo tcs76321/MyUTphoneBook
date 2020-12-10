@@ -12,6 +12,10 @@ div.topDiv {
     background-color: #011f33;
 
 }
+div.bottomDiv {
+    background-color: #011f33;
+    text-align: center;
+}
 
 /*body {*/
 /*    background-color: #011f33;*/

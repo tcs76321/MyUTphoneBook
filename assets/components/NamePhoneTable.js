@@ -64,7 +64,7 @@ function NamePhoneTable() {
                 </Table>
 
 
-                <h4 align="center"><br/><br/><br/><br/><br/><u>Contact List</u></h4>
+                <h4 align="center"><br/><br/><br/><br/><u>Contact List</u></h4>
                 <Table>
                     <TableHead>
                         <TableRow>

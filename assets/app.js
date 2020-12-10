@@ -23,12 +23,14 @@ class App extends Component {
     render() {
         return (
             <div>
-                <div className='topDiv'><h1><IconButton><ContactPhoneIcon style={{fill: "white"}}/></IconButton>My UT Phone Book</h1></div>
+                <div className='topDiv'><h1><IconButton><ContactPhoneIcon style={{fill: "white"}}/></IconButton>My UT Phone Book!</h1></div>
                 <NamePhoneContextProvider>
                     <CssBaseline>
                         <NamePhoneTable/>
                     </CssBaseline>
                 </NamePhoneContextProvider>
+                <br/><br/>
+                <div className='bottomDiv'><h3><br/>Please Hire Me<br/><br/></h3></div>
             </div>
         );
     }

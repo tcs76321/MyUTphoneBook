@@ -16,13 +16,16 @@ import './bootstrap';
 import React, {Component} from 'react';
 import NamePhoneContextProvider, {NamePhoneContext} from "./contexts/NamePhoneContext";
 import NamePhoneTable from "./components/NamePhoneTable";
+import {CssBaseline} from "@material-ui/core";
 
 class App extends Component {
     render() {
         return (
             <div>
                 <NamePhoneContextProvider>
-                    <NamePhoneTable/>
+                    <CssBaseline>
+                        <NamePhoneTable/>
+                    </CssBaseline>
                 </NamePhoneContextProvider>
             </div>
         );

@@ -42,8 +42,17 @@ class NamePhoneContextProvider extends React.Component {
     }
 
     //delete
-    deleteNamePhone(){
+    deleteNamePhone(data){
+        let namephones = [...this.state.namephones];
+        let namephone = namephones.find(namephone => {
+            return namephone.id === data.id;
+        });
 
+        namephones.splice(namephones.indexOf(namephone), 1);
+
+        this.setState({
+            namephones: namephones,
+        });
     }
 
     render() {

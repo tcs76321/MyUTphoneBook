@@ -9,8 +9,8 @@ class NamePhoneContextProvider extends React.Component {
         super(props);
         this.state = {
             namephones: [
-                {name: 'John Doe'},
-                {name: 'Tom Smith'},
+                {id: 1, name: 'John Doe'},
+                {id: 2, name: 'Tom Smith'},
             ],
         };
     }
@@ -32,8 +32,13 @@ class NamePhoneContextProvider extends React.Component {
     }
 
     //update
-    updateNamePhone(){
+    updateNamePhone(data){
+        let namephones = [...this.state.namephones];
+        let namephone = namephones.find(namephone => {return namephone.id === data.id;});
 
+        namephone.name = data.name;
+
+        this.setState({namephones: namephones});
     }
 
     //delete

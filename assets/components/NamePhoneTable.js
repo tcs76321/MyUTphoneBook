@@ -1,18 +1,32 @@
 import React, {useContext, useState} from 'react';
 // import {useContext} from "react/cjs/react.production.min";
 import {NamePhoneContext} from "../contexts/NamePhoneContext";
-import {IconButton, Table, TableBody, TableCell, TableHead, TableRow, TextField} from "@material-ui/core";
+import {
+    IconButton,
+    InputAdornment,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+    TextField
+} from "@material-ui/core";
 // import {useContext} from "react/cjs/react.production.min";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import StarIcon from '@material-ui/icons/Star';
 import PersonIcon from '@material-ui/icons/Person';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
+import EditIcon from '@material-ui/icons/Edit';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 
 function NamePhoneTable() {
     const context = useContext(NamePhoneContext);
     const [addNamePhone, setAddNamePhone] = useState('');
+    const [editIsShown, setEditIsShown] = useState(false);
+    const [editNamePhone, setEditNamePhone] = useState('');
 
     return (
         <form onSubmit={(event) => {
@@ -53,21 +67,44 @@ function NamePhoneTable() {
                         <TableCell>Phone Number</TableCell>
                         <TableCell>Favorited</TableCell>
                         <TableCell>Color Code</TableCell>
-                        <TableCell align="right">Delete</TableCell>
+                        <TableCell align="right">Actions</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {context.namephones.slice().reverse().map((namephone, index) =>(
                         <TableRow key={'namephone ' + index}>
-                            <TableCell> <IconButton><PersonIcon/></IconButton> {namephone.name}</TableCell>
+                            <TableCell>
+                                <IconButton><PersonIcon/></IconButton>
+
+                                {editIsShown === namephone.id ?
+                                    <TextField
+                                        value={editNamePhone}
+                                        onChange={(event) => {
+                                            setEditNamePhone(event.target.value);
+                                        }}
+                                        InputProps={{
+                                            endAdornment: <React.Fragment>
+                                                <IconButton onClick={() => {setEditIsShown(false)}}><CancelIcon/></IconButton>
+                                                <IconButton onClick={() => {context.updateNamePhone({id: namephone.id, name: editNamePhone}); setEditIsShown(false);}}><CheckCircleOutlineIcon/></IconButton>
+                                            </React.Fragment>,
+                                        }}
+                                    /> : namephone.name
+                                }
+
+                            </TableCell>
                             <TableCell>numbers</TableCell>
                             <TableCell><IconButton>
                                 <StarIcon/>
                             </IconButton></TableCell>
                             <TableCell>colorss</TableCell>
-                            <TableCell align="right"><IconButton>
-                                <DeleteForeverIcon/>
-                            </IconButton></TableCell>
+                            <TableCell align="right">
+                                <IconButton onClick={() => {setEditIsShown(namephone.id); setEditNamePhone(namephone.name)}}>
+                                    <EditIcon/>
+                                </IconButton>
+                                <IconButton>
+                                    <DeleteForeverIcon/>
+                                </IconButton>
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -75,6 +112,7 @@ function NamePhoneTable() {
         </form>
     );
 }
+
 
 
 export default NamePhoneTable;

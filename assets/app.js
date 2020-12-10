@@ -16,12 +16,14 @@ import './bootstrap';
 import React, {Component} from 'react';
 import NamePhoneContextProvider, {NamePhoneContext} from "./contexts/NamePhoneContext";
 import NamePhoneTable from "./components/NamePhoneTable";
-import {CssBaseline} from "@material-ui/core";
+import {CssBaseline, IconButton} from "@material-ui/core";
+import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 
 class App extends Component {
     render() {
         return (
             <div>
+                <div className='topDiv'><h1><IconButton><ContactPhoneIcon style={{fill: "white"}}/></IconButton>My UT Phone Book</h1></div>
                 <NamePhoneContextProvider>
                     <CssBaseline>
                         <NamePhoneTable/>

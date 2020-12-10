@@ -37,7 +37,7 @@ function NamePhoneTable() {
             <form onSubmit={(event) => {
                 context.createNamePhone(event, {name: addNamePhone})
             }}>
-                <h1><IconButton><ContactPhoneIcon/></IconButton> UT Phone Book</h1>
+                {/*<h1><IconButton><ContactPhoneIcon/></IconButton>My UT Phone Book</h1>*/}
 
                 <h4 align="center"><br/><br/><u>Add New Contact</u></h4>
                 <Table>

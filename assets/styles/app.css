@@ -1,3 +1,18 @@
+body {
+    /*background-color: #011f33;*/
+    /*text-align: center;*/
+    /*margin: auto;*/
+    color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: #f45b1f;
+}
+
+div.topDiv {
+    background-color: #011f33;
+
+}
+
 /*body {*/
 /*    background-color: #011f33;*/
 /*    !*text-align: center;*!*/
